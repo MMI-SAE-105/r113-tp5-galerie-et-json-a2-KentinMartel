@@ -1,48 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="//unpkg.com/alpinejs" defer></script>
     <title>JSON</title>
 </head>
 
 <body>
     <h1>JSON</h1>
-    <ul x-data="{
-        données : [
-        {
-            nom: 'Jean',
-            projet: 'Alpine.js,
-            url: 'https://alpinejs.dev/'
-        },
-        {
-            nom: 'Maxime',
-            projet: 'Tailwind CSS',
-            url: 'https://tailwindcss.com/'
-        },
-        {
-            nom: 'Adam',
-            projet: 'Laravel',
-            url: 'https://laravel.com/'
-        }
+    <ul x-data="{ 
+        données: [
+            { 
+                nom: 'Jean',
+                alpine: 'Alpine.js',
+                url: 'https://alpinejs.dev/'
+            },
+            { 
+                nom: 'Maxime',
+                projet: 'Tailwind CSS',
+                url: 'https://tailwindcss.com/'
+            },
+            { 
+                nom: 'Adam',
+                projet: 'Laravel',
+                url: 'https://laravel.com/'
+            }
     ],
     }">
-        <template x-for="donnee in donnees">
+        <template x-for="données in données">
             <li>
-                <span x-text="donnee.nom">nom</span> :
-                <a x-bind:href="donnee.url" x-text="donnee.projet">projet</a>
+                <span x-text="données.nom">nom</span> :
+                <a :href="données.url">projet</a>
             </li>
         </template>
     </ul>
-    <p>Importé avec json:</p>
-    <ul x-data="{ 
-                async donnees(){
-                        const resp = await fetch('data.json'); 
-                        return await resp.json();
-                    },
-                }">
 </body>
 
 </html>
