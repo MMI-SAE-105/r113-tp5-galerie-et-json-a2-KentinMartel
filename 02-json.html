@@ -29,10 +29,11 @@
         }
     ],
     }">
-        <template x-for="données">
+        <template x-for="donnee in donnees">
             <li>
-                <span x-text="obj_données">nom</span> :
-                <a :></a>
+                <span x-text="donnee.nom">nom</span> :
+                <a x-bind:href="donnee.url" x-text="donnee.projet">
+                    projet</a>
             </li>
         </template>
 
