@@ -32,12 +32,17 @@
         <template x-for="donnee in donnees">
             <li>
                 <span x-text="donnee.nom">nom</span> :
-                <a x-bind:href="donnee.url" x-text="donnee.projet">
-                    projet</a>
+                <a x-bind:href="donnee.url" x-text="donnee.projet">projet</a>
             </li>
         </template>
-
     </ul>
+    <p>Importé avec json:</p>
+    <ul x-data="{ 
+                async donnees(){
+                        const resp = await fetch('data.json'); 
+                        return await resp.json();
+                    },
+                }">
 </body>
 
 </html>
